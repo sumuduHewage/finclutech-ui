@@ -13,7 +13,7 @@ import {ToastrService} from "ngx-toastr";
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  displayedColumns: string[] = ['business_application_id', 'sales_agent_first_name', 'sales_agent_last_name', 'sales_agent_email',
+  displayedColumns: string[] = ['id','business_application_id', 'sales_agent_first_name', 'sales_agent_last_name', 'sales_agent_email',
     'account_type', 'created_at', 'application_status', 'business_category', 'updated_at', 'delete'];
   dataSource = new MatTableDataSource<Application>([]);
 
