@@ -17,8 +17,8 @@ export class ApplicationService {
     return this.http.get<Application[]>(this.apiUrl).pipe(
       map(applications => applications.map(app => ({
         ...app,
-        createdAt: new Date(app.createdAt),
-        updatedAt: new Date(app.updatedAt)
+        createdAt: new Date(app.created_at),
+        updatedAt: new Date(app.updated_at)
       })))
     );
   }
@@ -27,8 +27,8 @@ export class ApplicationService {
     return this.http.get<Application>(`${this.apiUrl}/${id}`).pipe(
       map(app => ({
         ...app,
-        createdAt: new Date(app.createdAt),
-        updatedAt: new Date(app.updatedAt)
+        createdAt: new Date(app.created_at),
+        updatedAt: new Date(app.updated_at)
       }))
     );
   }
@@ -38,7 +38,7 @@ export class ApplicationService {
   }
 
   updateApplication(application: Application): Observable<Application> {
-    return this.http.put<Application>(`${this.apiUrl}/${application.businessApplicationId}`, application);
+    return this.http.put<Application>(`${this.apiUrl}/${application.business_application_id}`, application);
   }
 
   deleteApplication(id: number): Observable<void> {

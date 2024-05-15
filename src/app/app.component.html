@@ -1,1 +1,24 @@
-<router-outlet class="router-outlet"></router-outlet>
+<div class="app-container">
+
+  <mat-sidenav-container *ngIf="isLoggedIn$ | async" class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport="true" mode="side" opened="true">
+      <mat-toolbar color="primary">Menu</mat-toolbar>
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard">Dashboard</a>
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <mat-toolbar color="primary" class="mat-toolbar-main">
+        <button type="button" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Business Onboarding</span>
+        <button mat-button (click)="logout()">Logout</button>
+      </mat-toolbar>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+  <router-outlet *ngIf="(isLoggedIn$ | async) === false"></router-outlet>
+</div>

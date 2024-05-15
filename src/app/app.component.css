@@ -1,0 +1,32 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.sidenav-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-sidenav-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.mat-toolbar-main{
+  margin-top: -20px;
+  margin-left: -20px;
+  min-width: 103%;
+}
