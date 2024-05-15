@@ -14,6 +14,7 @@ import {MatMomentDateModule} from "@angular/material-moment-adapter";
 import {AuthInterceptor} from "./auth.interceptor";
 import {ModalModule} from "ngx-bootstrap/modal";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {ToastrModule} from "ngx-toastr";
 
 @NgModule({
   declarations: [
@@ -31,6 +32,12 @@ import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
     MatListModule,
     MatDatepickerModule,
     MatMomentDateModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

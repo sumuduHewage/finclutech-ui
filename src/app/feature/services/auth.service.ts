@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -13,7 +13,13 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(username: string, password: string): Observable<boolean> {
-    return this.http.post<{ jwtToken: string }>(`${this.baseUrl}/login`, { username, password })
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      }),
+      withCredentials: true
+    };
+    return this.http.post<{ jwtToken: string }>(`${this.baseUrl}/login`, { username, password },httpOptions)
       .pipe(
         map(response => {
           localStorage.setItem('jwt_token', response.jwtToken);

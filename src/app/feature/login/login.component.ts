@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {AuthService} from "../services/auth.service";
+import {ToastrService} from "ngx-toastr";
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -30,13 +32,24 @@ export class LoginComponent {
         .subscribe(
           (response:any) => {
             this.router.navigate(['/dashboard']);
+            this.showSuccess('Login Successfully!')
           },
           (error:any) => {
-            this.error = 'Login failed';
+            this.error = 'Invalid login Credentials';
+            this.showError(this.error);
           }
         );
     } else {
-      this.error = 'Please enter both username and password';
+      this.error = 'Invalid login Credentials';
+      this.showError(this.error);
     }
+  }
+
+  showError(message: string) {
+    this.toastr.error(message, 'Alert!');
+  }
+
+  showSuccess(message: string) {
+    this.toastr.success(message, 'Alert!');
   }
 }

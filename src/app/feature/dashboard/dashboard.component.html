@@ -1,37 +1,39 @@
 <div class="dashboard-container">
+  <form [formGroup]="searchForm">
+    <div class="row search-field-container-row">
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Search</mat-label>
+          <input matInput formControlName="searchText" (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field>
+      </div>
 
-  <div class="row search-field-container-row">
-    <div class="col-3">
-      <mat-form-field appearance="outline">
-        <mat-label>Search</mat-label>
-        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-      </mat-form-field>
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="createdDate" placeholder="Choose a date" (dateChange)="applyDateFilter()">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+      <div class="col-3">
+        <mat-form-field appearance="outline">
+          <mat-label>End Date</mat-label>
+          <input matInput [matDatepicker]="picker2" formControlName="updatedDate" placeholder="Choose a date" (dateChange)="applyDateFilter()">
+          <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+      </div>
+
+
+      <div class="col-3">
+        <button class="btn btn-primary search-btn" (click)="search()">Search</button>
+      </div>
+
     </div>
+  </form>
 
-    <div class="col-3">
-      <mat-form-field appearance="outline">
-        <mat-label>Start Date</mat-label>
-        <input matInput [matDatepicker]="picker1" placeholder="Choose a date" (dateChange)="applyDateFilter()">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-      </mat-form-field>
-    </div>
-
-    <div class="col-3">
-      <mat-form-field appearance="outline">
-        <mat-label>End Date</mat-label>
-        <input matInput [matDatepicker]="picker2" placeholder="Choose a date" (dateChange)="applyDateFilter()">
-        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
-        <mat-datepicker #picker2></mat-datepicker>
-      </mat-form-field>
-    </div>
-
-
-    <div class="col-3">
-      <button class="btn btn-primary search-btn">Search</button>
-    </div>
-
-  </div>
 
 
   <div class="table-container">

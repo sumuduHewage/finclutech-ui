@@ -4,6 +4,7 @@ import {Application} from "../interfaces/Application";
 import {MatPaginator} from "@angular/material/paginator";
 import {MatSort} from "@angular/material/sort";
 import {ApplicationService} from "../services/application.service";
+import {FormBuilder, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-dashboard',
@@ -16,9 +17,13 @@ export class DashboardComponent implements OnInit{
 
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort?: MatSort;
-  constructor(private applicationService: ApplicationService) {}
+  searchForm: FormGroup;
+  constructor(private applicationService: ApplicationService,
+  private fb: FormBuilder){}
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.intiForm();
+
     this.applicationService.getAllApplications().subscribe(applications => {
       this.dataSource.data = applications;
       this.dataSource.paginator = this.paginator;
@@ -28,11 +33,30 @@ export class DashboardComponent implements OnInit{
     });
   }
 
+  private intiForm() : void{
+    this.searchForm = this.fb.group({
+      searchText: [''],
+      createdDate: [''],
+      updatedDate: ['']
+    });
+  }
+
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  applyDateFilter() {
+  applyDateFilter():void {
 
+  }
+
+  search():void {
+    const { searchText, createdAfter, updatedBefore } = this.searchForm.value;
+    this.applicationService.searchByTextFieldNadCreatedUpdatedDates(searchText, createdAfter, updatedBefore).subscribe(applications => {
+      this.dataSource.data = applications;
+      this.dataSource.paginator = this.paginator;
+      if (this.sort) {
+        this.dataSource.sort = this.sort;
+      }
+    });
   }
 }

@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Application} from "../interfaces/Application";
 import {map} from "rxjs/operators";
@@ -21,6 +21,21 @@ export class ApplicationService {
         updatedAt: new Date(app.updated_at)
       })))
     );
+  }
+
+  searchByTextFieldNadCreatedUpdatedDates(searchText?: string, createdDate?: string, updatedDate?: string): Observable<Application[]> {
+    let params = new HttpParams();
+    if (searchText) {
+      params = params.append('searchText', searchText);
+    }
+    if (createdDate) {
+      params = params.append('createdDate', createdDate);
+    }
+    if (updatedDate) {
+      params = params.append('updatedDate', updatedDate);
+    }
+
+    return this.http.get<Application[]>(this.apiUrl+'/search', { params });
   }
 
   getApplicationById(id: number): Observable<Application> {
