@@ -27,9 +27,25 @@ table {
   box-shadow: none;
 }
 
-.search-field-container-row{
+.search-field-container-row {
   width: 100%;
 }
-.search-btn{
+
+.search-btn {
   margin-top: 10px;
+  background-color: #403a60;
+}
+
+
+.mat-header-cell {
+  background-color: #403a60;
+  color: #ffffff;
+  font-weight: bold;
+  padding: 8px 24px;
+  border-right: 1px solid #dee2e6;
+}
+
+
+.mat-header-row {
+  border-bottom: 2px solid #123456;
 }

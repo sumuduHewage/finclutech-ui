@@ -41,14 +41,10 @@ button {
   }
 }
 
-.login-card {
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  width: 100%;
-  max-width: 400px;
+.submit-btn-row {
+  margin-top: 10px !important;
 }
-.submit-btn-row{
-  margin-top: 10px!important;
+
+.login-btn {
+  background-color: #403a60;
 }
