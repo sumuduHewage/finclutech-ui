@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root {
+  --primary-color: #005bac;  /* Primary color for buttons and links */
+  --secondary-color: #f0f0f0; /* Background color for the form */
+  --text-color: #333; /* Main text color */
+  --input-bg-color: #fff; /* Input field background color */
+  --input-border-color: #ccc; /* Input field border color */
+}
+
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--secondary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
