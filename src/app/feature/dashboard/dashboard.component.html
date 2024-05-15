@@ -1,0 +1,94 @@
+<div class="dashboard-container">
+
+  <div class="row search-field-container-row">
+    <div class="col-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Search</mat-label>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+
+    <div class="col-3">
+      <mat-form-field appearance="outline">
+        <mat-label>Start Date</mat-label>
+        <input matInput [matDatepicker]="picker1" placeholder="Choose a date" (dateChange)="applyDateFilter()">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="col-3">
+      <mat-form-field appearance="outline">
+        <mat-label>End Date</mat-label>
+        <input matInput [matDatepicker]="picker2" placeholder="Choose a date" (dateChange)="applyDateFilter()">
+        <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+        <mat-datepicker #picker2></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+
+    <div class="col-3">
+      <button class="btn btn-primary search-btn">Search</button>
+    </div>
+
+  </div>
+
+
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <ng-container matColumnDef="business_application_id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Application ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.business_application_id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sales_agent_first_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sales Agent First Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.sales_agent_first_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sales_agent_last_name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sales Agent Last Name</th>
+        <td mat-cell *matCellDef="let element">{{ element.sales_agent_last_name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="sales_agent_email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Sales Agent Email</th>
+        <td mat-cell *matCellDef="let element">{{ element.sales_agent_email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="account_type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Account Type</th>
+        <td mat-cell *matCellDef="let element">{{ element.account_type }}</td>
+      </ng-container>
+      <
+
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Created On</th>
+        <td mat-cell *matCellDef="let element">{{ element.created_at }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="application_status">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Application Status</th>
+        <td mat-cell *matCellDef="let element">{{ element.application_status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="business_category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Business Category</th>
+        <td mat-cell *matCellDef="let element">{{ element.business_category }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="updated_at">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Action On</th>
+        <td mat-cell *matCellDef="let element">{{ element.updated_at }}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+
+  </div>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

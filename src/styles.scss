@@ -1,0 +1,112 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+
+$finclutech-primary: mat-palette($mat-indigo);
+$finclutech-accent: mat-palette($mat-pink, A200, A100, A400);
+$finclutech-warn: mat-palette($mat-red);
+
+
+$finclutech-theme: mat-light-theme((
+  color: (
+    primary: $finclutech-primary,
+    accent: $finclutech-accent,
+    warn: $finclutech-warn
+  )
+));
+
+@include angular-material-theme($finclutech-theme);
+
+
+
+:root {
+  --primary-color: #7727d4;
+  --secondary-color: #f0f0f0;
+  --text-color: #333;
+  --input-bg-color: #fff;
+  --input-border-color: #ccc;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  background: #f0f0f0;
+  color: #333;
+}
+
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+  box-shadow: 3px 0 6px rgba(0,0,0,.24);
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-nav-list {
+  margin-top: 60px;
+}
+
+
+body, h1, h2, h3, p {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.container {
+  padding: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #333;
+  color: white;
+}
+
+td {
+  background-color: #f4f4f4;
+}
+
+.mat-paginator {
+  background-color: #fff;
+}
+
+
+.sidebar {
+  width: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: #343a40;
+  color: #fff;
+  padding: 20px;
+}
+
+.search-field, .date-field {
+  margin-bottom: 20px;
+}
+
+
+
