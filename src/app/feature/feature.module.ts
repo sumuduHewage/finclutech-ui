@@ -13,12 +13,14 @@ import {MaterialModule} from "../material/material.module";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import { AddNewRecordsComponent } from './dashboard/add-new-records/add-new-records.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     DashboardComponent,
-    SidebarComponent],
+    SidebarComponent,
+    AddNewRecordsComponent],
   exports: [
     SidebarComponent
   ],

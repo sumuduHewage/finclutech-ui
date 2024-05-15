@@ -6,6 +6,7 @@ import {MatSort} from "@angular/material/sort";
 import {ApplicationService} from "../services/application.service";
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ToastrService} from "ngx-toastr";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -23,6 +24,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(private applicationService: ApplicationService,
               private fb: FormBuilder,
+              private router: Router,
               private toastr: ToastrService) {
   }
 
@@ -83,5 +85,9 @@ export class DashboardComponent implements OnInit {
 
   showSuccess(message: string) {
     this.toastr.success(message, 'Alert!');
+  }
+
+  addNewRecord() {
+    this.router.navigate(['/dashboard/add-new']);
   }
 }

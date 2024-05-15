@@ -37,6 +37,13 @@
 
 
   <div class="table-container">
+
+    <div class="row search-field-container-row">
+      <div class="col-12 d-flex justify-content-end">
+        <button class="btn btn-primary search-btn" (click)="addNewRecord()">Add New</button>
+      </div>
+    </div>
+
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>

@@ -1,0 +1,13 @@
+.search-btn {
+  margin-top: 10px;
+  background-color: #403a60;
+}
+
+.add-form-container{
+  padding: 20px!important;
+}
+.header-add{
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
