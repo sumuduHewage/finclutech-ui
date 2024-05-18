@@ -48,7 +48,17 @@ export class ApplicationService {
     );
   }
 
-  createApplication(application: Application): Observable<Application> {
+  createApplication(application: {
+    sales_agent_first_name: any;
+    account_type: any;
+    business_category: any;
+    updated_at: string | null;
+    business_application_id: any;
+    created_at: string | null;
+    application_status: any;
+    sales_agent_last_name: any;
+    sales_agent_email: any
+  }): Observable<Application> {
     return this.http.post<Application>(this.apiUrl, application);
   }
 

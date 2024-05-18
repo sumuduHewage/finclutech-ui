@@ -15,6 +15,7 @@ import {AuthInterceptor} from "./auth.interceptor";
 import {ModalModule} from "ngx-bootstrap/modal";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {ToastrModule} from "ngx-toastr";
+import {BsDatepickerModule} from "ngx-bootstrap/datepicker";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {ToastrModule} from "ngx-toastr";
     MatDatepickerModule,
     MatMomentDateModule,
     BrowserAnimationsModule,
+    BsDatepickerModule.forRoot(),
     ToastrModule.forRoot({
       timeOut: 3000,
       positionClass: 'toast-bottom-right',

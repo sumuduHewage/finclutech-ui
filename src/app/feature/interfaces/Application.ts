@@ -10,3 +10,16 @@ export interface Application {
   business_category?: string;
   updated_at: Date;
 }
+
+export interface ApplicationDTO {
+  id?: number ,
+  businessApplicationId?: number ,
+  salesAgentFirstName?: string ,
+  salesAgentLastName?: string ,
+  salesAgentEmail?: string ,
+  accountType?: string ,
+  createdDate: Date ,
+  applicationStatus?: string ,
+  businessCategory?: string ,
+  updatedDate: Date ,
+}
